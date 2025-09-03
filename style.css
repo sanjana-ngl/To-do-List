@@ -1,5 +1,5 @@
 :root {
-  --bg: #f3e8ff;               
+  --bg: #ecd9f6;               
   --card: rgba(255,255,255,.55);
   --accent: #1fe0ba;            
   --accent-press: #2848c7;      
@@ -16,7 +16,7 @@ body{
 }
 .app{
     max-width: 800px;
-    margin: 8vh auto
+    margin: 8vh auto;
     padding: 20px;
 }
 .header-box {
@@ -26,6 +26,27 @@ body{
   padding: 20px;
   margin-bottom: 20px;
 }
+.titleTask{
+    text-align: center;
+}
+.task-box{
+    background: #e4fbff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: left;
+}
+.completed-box{
+    background: #e4fbff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  text-align: left;
+}
 .title {
   font-size: 35px;
   margin: 18px;
@@ -33,7 +54,13 @@ body{
 }
 .taskList {
   list-style-type: none;  
-  padding-left: 0;        
+  padding-left: 0;      
+}
+.taskList li {
+  display: flex;          
+  align-items: center;    
+  gap: 8px;               
+  text-align: left;       
 }
 .add-btn{
     padding: 12px 18px;

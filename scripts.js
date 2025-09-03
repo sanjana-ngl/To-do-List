@@ -14,23 +14,46 @@ function addTask(){
   listItem.textContent = taskText;
 
   const deleteBtn = document.createElement('button');
-  deleteBtn.textContent = '⚫';
+  deleteBtn.textContent = '◯';
   deleteBtn.style.marginLeft = '10px';
-  deleteBtn.style.backgroundColor = '#f0e5f2ff';
-  deleteBtn.style.color = 'green';
+  deleteBtn.style.backgroundColor = '#e9b2f0ff';
+  deleteBtn.style.color = 'black';
   deleteBtn.style.border = 'none';
   deleteBtn.style.borderRadius = '5px';
   deleteBtn.style.cursor = 'pointer';
 
-  listItem.appendChild(deleteBtn);
+  listItem.insertBefore(deleteBtn, listItem.firstChild);
   taskList.appendChild(listItem);
   taskInput.value = '';
   deleteBtn.addEventListener('click', () => {
-  taskList.removeChild(listItem);
-  listItem.removeChild(deleteBtn);
-  listItem.appendChild(document.createTextNode(" ✅ "));
-  completedList.appendChild(listItem);
-});
+    taskList.removeChild(listItem);
+    listItem.removeChild(deleteBtn);
+
+    const removeBtn = document.createElement('button');
+    removeBtn.textContent = 'Delete';
+    removeBtn.style.marginLeft = '10px';
+    removeBtn.style.backgroundColor = '#ff7da2ff';
+    removeBtn.style.color = 'black';
+    removeBtn.style.border = 'none';
+    removeBtn.style.borderRadius = '5px';
+    removeBtn.style.cursor = 'pointer';
+
+    const completedItem = document.createElement('li');
+    const textSpan = document.createElement('span');
+    textSpan.textContent = taskText;
+    textSpan.style.textDecoration = 'line-through';
+    textSpan.style.color = 'grey';
+
+    completedItem.appendChild(textSpan);
+    completedItem.appendChild(removeBtn);
+    completedList.appendChild(completedItem);
+    
+    
+
+    removeBtn.addEventListener('click', () => {
+      completedList.removeChild(completedItem);
+    });
+  });
 }
 addButton.addEventListener('click', addTask)
 taskInput.addEventListener('keypress', function (e) {
@@ -38,4 +61,3 @@ taskInput.addEventListener('keypress', function (e) {
     addTask();
   }
 });
-
