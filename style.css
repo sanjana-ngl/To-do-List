@@ -31,6 +31,10 @@ body{
   margin: 18px;
   text-align: center;
 }
+.taskList {
+  list-style-type: none;  
+  padding-left: 0;        
+}
 .add-btn{
     padding: 12px 18px;
     border: none;
@@ -41,6 +45,11 @@ body{
     cursor: pointer;
 }
 .add-btn:hover { background: #3450d6;}
+.completed-title {
+  font-size: 16px;
+  margin-top: 20px;
+  text-align: center;
+}
 .task-input {
   width: 100%;              
   max-width: 500px;        
