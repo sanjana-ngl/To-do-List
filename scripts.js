@@ -11,20 +11,47 @@ function addTask(){
     return;
     }
   const listItem = document.createElement('li');
-  listItem.textContent = taskText;
+
+  const taskSpan = document.createElement('span');
+  taskSpan.textContent = taskText;
+
+  const editBtn = document.createElement('button');
+  editBtn.textContent = '✏️';
+  editBtn.style.marginLeft = '10px';
+  editBtn.style.color='black'
 
   const deleteBtn = document.createElement('button');
   deleteBtn.textContent = '◯';
   deleteBtn.style.marginLeft = '10px';
-  deleteBtn.style.backgroundColor = '#e9b2f0ff';
+  deleteBtn.style.backgroundColor = '#e9d9eaff';
   deleteBtn.style.color = 'black';
   deleteBtn.style.border = 'none';
   deleteBtn.style.borderRadius = '5px';
   deleteBtn.style.cursor = 'pointer';
 
+  listItem.appendChild(taskSpan);
+  listItem.appendChild(editBtn);
   listItem.insertBefore(deleteBtn, listItem.firstChild);
   taskList.appendChild(listItem);
   taskInput.value = '';
+  
+  taskInput.value = '';
+  editBtn.addEventListener('click', ()=>{
+    const input=document.createElement('input');
+    input.type='text';
+    input.value=taskSpan.textContent;
+    const saveBtn = document.createElement('button');
+    saveBtn.textContent = 'Save';
+    saveBtn.style.backgroundColor='#9ef9b5ff'
+    listItem.replaceChild(input, taskSpan);
+    listItem.replaceChild(saveBtn,editBtn);
+
+    saveBtn.addEventListener('click', () => {
+      taskSpan.textContent = input.value.trim() || taskSpan.textContent;
+      listItem.replaceChild(taskSpan, input);
+      listItem.replaceChild(editBtn, saveBtn);
+    });
+  });
   deleteBtn.addEventListener('click', () => {
     taskList.removeChild(listItem);
     listItem.removeChild(deleteBtn);
