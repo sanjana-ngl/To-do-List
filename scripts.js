@@ -60,14 +60,14 @@ function addTask(){
     removeBtn.textContent = 'Delete';
     removeBtn.style.marginLeft = '10px';
     removeBtn.style.backgroundColor = '#ff7da2ff';
-    removeBtn.style.color = 'black';
+    removeBtn.style.color = 'black';  
     removeBtn.style.border = 'none';
     removeBtn.style.borderRadius = '5px';
     removeBtn.style.cursor = 'pointer';
 
     const completedItem = document.createElement('li');
     const textSpan = document.createElement('span');
-    textSpan.textContent = taskText;
+    textSpan.textContent = taskSpan.textContent;
     textSpan.style.textDecoration = 'line-through';
     textSpan.style.color = 'grey';
 
